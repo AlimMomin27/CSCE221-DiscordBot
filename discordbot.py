@@ -52,7 +52,8 @@ async def on_ready():
     guild = bot.guilds[0]  # Assuming the bot is in only one guild
     for member in guild.members:
         # Check if the member's nickname is None or is the same as their username
-        if member.nick is None or member.nick == member.name:
+
+        if (member.nick is None or member.nick == member.name) and not(member.bot):
             try:
                 # Send DM to the member reminding them to change their nickname
                 await member.send(f"Hello {member.name}, please change your server nickname to your actual name.")
