@@ -78,17 +78,17 @@ async def on_member_join(member):
         if debug_channel:
             await debug_channel.send(f"Could not DM {member.name}.")
 
-@bot.event
-async def on_message(message):
-    if message.author == bot.user:
-        return
+# @bot.event
+# async def on_message(message):
+#     if message.author == bot.user:
+#         return
 
-    if message.channel.name == "general" and not message.author.guild_permissions.administrator:
-        member = message.author
-        if member.nick is None or member.nick == member.name:
-            await message.channel.send(f"{member.mention}, please update your server nickname to your actual name.")
+#     if message.channel.name == "general" and not message.author.guild_permissions.administrator:
+#         member = message.author
+#         if member.nick is None or member.nick == member.name:
+#             await message.channel.send(f"{member.mention}, please update your server nickname to your actual name.")
 
-    await bot.process_commands(message)
+#     await bot.process_commands(message)
 
 # Run the bot
 bot.run(TOKEN)
